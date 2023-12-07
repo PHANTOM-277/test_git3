@@ -75,6 +75,7 @@ def delete_all():
     """delete the contents of practice.json completely"""
     nothing =''
     file.write_text(nothing)
+    print("Everything deleted")
 
 def display_all_names():
     """display the names of all people whose information is stored"""
