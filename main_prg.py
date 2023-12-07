@@ -88,7 +88,7 @@ def display_all_names():
     except json.JSONDecodeError:
         print("Nobody's information is available")
 
-def take_first_input():
+def take_first_input_menu():
     """function to take input for the first choice , i.e first menu choices"""
     print("Enter 1 to load a person's information ")
     print("Enter 2 to write data for a new person")
@@ -97,11 +97,7 @@ def take_first_input():
     a = int(input('Enter : '))
     return a
 
-
-def main():
-    a = take_first_input()
-    flag1 = False #while loop will only take place if the object is created
-
+def first_menu_actions(a):
     if a==1:
         """makes a person and then loads the information using the name"""
         str1 = str(input('Enter the name : '))
@@ -111,10 +107,12 @@ def main():
             """if person exists then only flag1 = True"""
             print('loaded',person.name)
             flag1 = True
+            return person
         else:
             """if person does not exist"""
             print("This person's information does not exist")
             print("make sure the caps are correct and run the program again")
+            return False
 
     elif a==2:
         """makes a new person"""
@@ -124,6 +122,7 @@ def main():
         person.set_base_info(str2, age)
         print('initialised',person.name)
         flag1 = True
+        return person
     
     elif a==3:
         """display all the names present """
@@ -134,7 +133,33 @@ def main():
     
     else:
         """invalid choice it is"""
-        print('Invalid choice , start the program again!')
+        print('Invalid choice !')
+
+
+def main():
+    flag_menu = True
+    flag1 = False #while loop will only take place if the object is created which happens if object is returned i.e a = 1 or 2
+    while flag_menu:
+
+        a = take_first_input_menu()#takes the input of first menu
+        if a in [1,2]:#only if an object is initialised , then only we want the object back
+            person = first_menu_actions(a)
+            flag_menu= False #get out of while loop
+            print(type(person))
+            if person: #get out of while loop and make the next while loop run if an object is returned
+                print('True')
+                flag_menu = False
+                flag1 = True
+        else:
+            """this happens if all names are displayed or storage file is cleaned or wrong input"""
+            first_menu_actions(a)
+            print("type 1 to get the same menu again , else enter anything")
+            b = str(input('Enter : '))
+            if int(b)==1:
+                pass
+            else:
+                flag_menu = False #get out of this while loop
+    
     
     if flag1:
         flag2 = True
