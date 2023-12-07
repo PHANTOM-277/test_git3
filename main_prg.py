@@ -88,13 +88,18 @@ def display_all_names():
     except json.JSONDecodeError:
         print("Nobody's information is available")
 
-def main():
-    """a function to make an object of Person and do various things"""
+def take_first_input():
+    """function to take input for the first choice , i.e first menu choices"""
     print("Enter 1 to load a person's information ")
     print("Enter 2 to write data for a new person")
     print("Enter 3 to display the name's of all people whose information is available")
     print("Enter 4 to first delete everything in the storage file")
     a = int(input('Enter : '))
+    return a
+
+
+def main():
+    a = take_first_input()
     flag1 = False #while loop will only take place if the object is created
 
     if a==1:
