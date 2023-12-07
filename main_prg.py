@@ -141,9 +141,10 @@ def main():
     flag_menu = True
     flag1 = False #while loop will only take place if the object is created which happens if object is returned i.e a = 1 or 2
     while flag_menu:
-
+        """loop to show first menu again if input was 3,4 or invalid"""
         a = take_first_input_menu()#takes the input of first menu
-        if a in [1,2]:#only if an object is initialised , then only we want the object back
+        if a in [1,2]:
+            """only if an object is initialised , then only we want the object back"""
             person = first_menu_actions(a)
             flag_menu= False #get out of while loop
             print(type(person))
