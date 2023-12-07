@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-file = Path('practice.json')
+file = Path('practice.json') # open practice.json 
 
 class Person:
     """a class to take information about a person"""
@@ -99,6 +99,8 @@ def take_first_input_menu():
     return a
 
 def first_menu_actions(a):
+    """has all the actions for first menu , returns object if its declared"""
+    """this function returns only when a is 1 or 2 and the function calling it knows that"""
     if a==1:
         """makes a person and then loads the information using the name"""
         str1 = str(input('Enter the name : '))
@@ -107,7 +109,6 @@ def first_menu_actions(a):
         if a:
             """if person exists then only flag1 = True"""
             print('loaded',person.name)
-            flag1 = True
             return person
         else:
             """if person does not exist"""
@@ -122,7 +123,6 @@ def first_menu_actions(a):
         person = Person()
         person.set_base_info(str2, age)
         print('initialised',person.name)
-        flag1 = True
         return person
     
     elif a==3:
