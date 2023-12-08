@@ -147,7 +147,6 @@ def main():
             """only if an object is initialised , then only we want the object back"""
             person = first_menu_actions(a)
             flag_menu= False #get out of while loop
-            print(type(person))
             if person: #get out of while loop and make the next while loop run if an object is returned
                 print('True')
                 flag_menu = False
