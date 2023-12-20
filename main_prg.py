@@ -148,7 +148,6 @@ def main():
             person = first_menu_actions(a)
             flag_menu= False #get out of while loop
             if person: #get out of while loop and make the next while loop run if an object is returned
-                print('True')
                 flag_menu = False
                 flag1 = True
         else:
